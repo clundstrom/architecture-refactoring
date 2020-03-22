@@ -4,6 +4,7 @@ package model.stalemate;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.IGameController;
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;
 import model.chess_pieces.King;
@@ -12,11 +13,10 @@ import model.chess_pieces.Pawn;
 import model.chess_pieces.Queen;
 import model.chess_pieces.Rook;
 import model.chess_pieces.AbstractChessPiece.Colour;
-import controller.GameController;
 
 public class StalemateChecker {
 
-	private GameController gc;
+	private IGameController gc;
 	private int previousNumberOfChessPieces = 32;
 	private int remainingNumberOfMoves = 100;
 	private List<ChessBoardMoment> previousMoments = new ArrayList<ChessBoardMoment>();
@@ -24,7 +24,7 @@ public class StalemateChecker {
 	public enum StalemateOption {MANDATORY_PLAYER_CANT_MOVE, MANDATORY_TOO_FEW_PIECES,
 		OPTIONAL_THREE_FOLD, OPTIONAL_FIFTY_MOVE, NOT_STALEMATE};
 
-	public StalemateChecker(GameController gameController) {
+	public StalemateChecker(IGameController gameController) {
 		gc = gameController;
 		CastlingOpportunities.resetStaticVariables();
 	}
