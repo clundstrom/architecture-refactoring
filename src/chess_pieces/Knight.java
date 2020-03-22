@@ -22,7 +22,6 @@ public class Knight extends AbstractChessPiece {
 			moveList.add(position);
 			listHolder.add(moveList);
 		}
-//		}
 		return listHolder;
 	}
 
@@ -39,4 +38,14 @@ public class Knight extends AbstractChessPiece {
 		return knightPositions;
 	}
 
+	@Override
+	public Knight clone(){
+		Class classType = getClass();
+		if(classType == Knight.class){
+			var cloned = new Knight(getColour(), getPosition());
+			cloned.hasMoved = hasMoved;
+			return cloned;
+		}
+		return null;
+	}
 }

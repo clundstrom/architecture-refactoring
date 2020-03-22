@@ -27,6 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
+import chess_pieces.AbstractChessPieceFactory;
 import util.Position;
 import chess_pieces.AbstractChessPiece;
 import chess_pieces.King;
@@ -232,7 +233,7 @@ public class ChessBoard extends JFrame {
 			yCoord = (i == 1) ? 2 : 7;
 			for (xCoord = 1; xCoord <= CHESSBOARD_WIDTH; xCoord++) {
 				Position position = Position.createPosition(xCoord, yCoord);
-				setPieceAtPosition(position, AbstractChessPiece.createChessPiece("Pawn", colour, position));
+				setPieceAtPosition(position, AbstractChessPieceFactory.createChessPiece("Pawn", colour, position));
 			}
 		}
 
@@ -243,19 +244,19 @@ public class ChessBoard extends JFrame {
 				Position position = Position.createPosition(xCoord, yCoord);
 				switch (xCoord) {
 				    case 1: case 8:
-				    	setPieceAtPosition(position, AbstractChessPiece.createChessPiece("Rook", colour, position));
+				    	setPieceAtPosition(position, AbstractChessPieceFactory.createChessPiece("Rook", colour, position));
 				    	break;
 				    case 2: case 7:
-				    	setPieceAtPosition(position, AbstractChessPiece.createChessPiece("Knight", colour, position));
+				    	setPieceAtPosition(position, AbstractChessPieceFactory.createChessPiece("Knight", colour, position));
 				    	break;
 				    case 3: case 6:
-				    	setPieceAtPosition(position, AbstractChessPiece.createChessPiece("Bishop", colour, position));
+				    	setPieceAtPosition(position, AbstractChessPieceFactory.createChessPiece("Bishop", colour, position));
 				    	break;
 				    case 4:
-				    	setPieceAtPosition(position, AbstractChessPiece.createChessPiece("Queen", colour, position));
+				    	setPieceAtPosition(position, AbstractChessPieceFactory.createChessPiece("Queen", colour, position));
 				    	break;
 				    case 5:
-				    	setPieceAtPosition(position, AbstractChessPiece.createChessPiece("King", colour, position));
+				    	setPieceAtPosition(position, AbstractChessPieceFactory.createChessPiece("King", colour, position));
 				    	break;
 				}
 			}

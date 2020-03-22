@@ -55,24 +55,6 @@ public abstract class AbstractChessPiece {
 		this.position = position;
 	}
 
-	public static final AbstractChessPiece createChessPiece(String name, Colour colour,
-			Position position) {
-		if (name.equals("Pawn"))
-			return new Pawn(colour, position);
-		if (name.equals("Rook"))
-			return new Rook(colour, position);
-		if (name.equals("Knight"))
-			return new Knight(colour, position);
-		if (name.equals("Bishop"))
-			return new Bishop(colour, position);
-		if (name.equals("Queen"))
-			return new Queen(colour, position);
-		if (name.equals("King"))
-			return new King(colour, position);
-		assert false : "\"" + name + "\" is not a valid name of a chess piece class.";
-		return null;
-	}
-
 	public abstract List<List<Position>> deriveAllMoves();
 
 	static boolean addMove(List<Position> moveList, Position currentPosition, int xTrans, int yTrans) {
@@ -168,27 +150,7 @@ public abstract class AbstractChessPiece {
     		listHolder.add(moveListSW);
     }
 
-    @Override
-    public AbstractChessPiece clone() {
-    	AbstractChessPiece newClass = null;
-    	Class classType = getClass();
-    	if (classType == Bishop.class)
-    		newClass = new Bishop(getColour(), getPosition());
-    	else if (classType == King.class)
-    		newClass = new King(getColour(), getPosition());
-    	else if (classType == Knight.class)
-    		newClass = new Knight(getColour(), getPosition());
-    	else if (classType == Pawn.class)
-    		newClass = new Pawn(getColour(), getPosition());
-    	else if (classType == Queen.class)
-    		newClass = new Queen(getColour(), getPosition());
-    	else if (classType == Rook.class)
-    		newClass = new Rook(getColour(), getPosition());
-    	else
-    		assert false;
-    	newClass.hasMoved = hasMoved;
-    	return newClass;
-    }
+    public abstract AbstractChessPiece clone();
 
 	@Override
 	public String toString() {

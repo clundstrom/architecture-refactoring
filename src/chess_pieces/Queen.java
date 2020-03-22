@@ -20,5 +20,14 @@ public class Queen extends AbstractChessPiece {
 		AbstractChessPiece.addDiagonalTranslations(listHolder, position);
 		return listHolder;
 	}
-
+	@Override
+	public Queen clone(){
+		Class classType = getClass();
+		if(classType == Queen.class){
+			var cloned = new Queen(getColour(), getPosition());
+			cloned.hasMoved = hasMoved;
+			return cloned;
+		}
+		return null;
+	}
 }

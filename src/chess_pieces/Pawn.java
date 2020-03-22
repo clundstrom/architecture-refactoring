@@ -56,5 +56,15 @@ public class Pawn extends AbstractChessPiece {
 		int yCoord = enPassantPosition.getYCoord() + ((colour == Colour.WHITE) ? 1 : -1);
 		return Position.createPosition(xCoord, yCoord);
 	}
+	@Override
+	public Pawn clone(){
+		Class classType = getClass();
+		if(classType == Pawn.class){
+			var cloned = new Pawn(getColour(), getPosition());
+			cloned.hasMoved = hasMoved;
+			return cloned;
+		}
+		return null;
+	}
 
 }

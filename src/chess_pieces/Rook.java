@@ -19,5 +19,14 @@ public class Rook extends AbstractChessPiece {
 		AbstractChessPiece.addStraightTranslations(listHolder, position);
 		return listHolder;
 	}
-
+	@Override
+	public Rook clone(){
+		Class classType = getClass();
+		if(classType == Rook.class){
+			var cloned = new Rook(getColour(), getPosition());
+			cloned.hasMoved = hasMoved;
+			return cloned;
+		}
+		return null;
+	}
 }

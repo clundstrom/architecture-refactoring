@@ -309,8 +309,7 @@ public class GameController {
 	 * continues until it hits a piece of either colour. Does not add the King's position
 	 * to the line.
 	 */
-	private List<Position> calculateSharedOpenLine(King king, AbstractChessPiece piece,
-			MutableBoolean isDiagonalLine) {
+	private List<Position> calculateSharedOpenLine(King king, AbstractChessPiece piece, MutableBoolean isDiagonalLine) {
 		int xDiff = piece.getPosition().getXCoord() - king.getPosition().getXCoord();
 		int yDiff = piece.getPosition().getYCoord() - king.getPosition().getYCoord();
 		if (!(xDiff == 0 || yDiff == 0 || Math.abs(xDiff) == Math.abs(yDiff)))

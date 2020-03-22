@@ -29,4 +29,15 @@ public class King extends AbstractChessPiece {
 		return listHolder;
 	}
 
+	@Override
+	public King clone(){
+		Class classType = getClass();
+		if(classType == King.class){
+			var cloned = new King(getColour(), getPosition());
+			cloned.hasMoved = hasMoved;
+			return cloned;
+		}
+		return null;
+	}
+
 }
