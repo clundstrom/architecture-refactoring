@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.Position;
 import model.chess_pieces.AbstractChessPiece.Colour;
+import model.stalemate.IGameControllerStateInfo;
 
 /**
  * This class contains all of the fields that GameController requires at a chess position
@@ -13,7 +14,7 @@ import model.chess_pieces.AbstractChessPiece.Colour;
  * @author rhys
  *
  */
-public class GameControllerStateInfo {
+public class GameControllerStateInfo implements IGameControllerStateInfo {
 
 	Colour currentPlayerToMove;
 	boolean currentPlayerIsInCheck;
@@ -49,22 +50,27 @@ public class GameControllerStateInfo {
 		return new GameControllerStateInfo(currentPlayerToMove, newCheckBlockingMoves, currentPlayerIsInCheck, enPassantPosition, moveNumber);
 	}
 
+	@Override
 	public Colour getCurrentPlayerToMove() {
 		return currentPlayerToMove;
 	}
 
+	@Override
 	public boolean isCurrentPlayerIsInCheck() {
 		return currentPlayerIsInCheck;
 	}
 
+	@Override
 	public Position getEnPassantPosition() {
 		return enPassantPosition;
 	}
 
+	@Override
 	public int getMoveNumber() {
 		return moveNumber;
 	}
 
+	@Override
 	public List<Position> getCheckBlockingMoves() {
 		return checkBlockingMoves;
 	}

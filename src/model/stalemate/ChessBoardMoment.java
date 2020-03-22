@@ -4,19 +4,18 @@ import java.util.Map;
 
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;
-import controller.GameControllerStateInfo;
 
 public class ChessBoardMoment {
 
 	private Map<Position, AbstractChessPiece> chessPieces;
 	private CastlingOpportunities castlingOpportunities;
 	private CastlingPiecesMovementTracker castlingPiecesMovementTracker;
-	private GameControllerStateInfo gcState;
+	private IGameControllerStateInfo gcState;
 
 	public ChessBoardMoment(Map<Position, AbstractChessPiece> chessPieces,
 			CastlingOpportunities castlingOpportunities,
 			CastlingPiecesMovementTracker castlingPiecesMovementTracker,
-			GameControllerStateInfo gcState) {
+			IGameControllerStateInfo gcState) {
 		super();
 		this.chessPieces = chessPieces;
 		this.castlingOpportunities = castlingOpportunities;
@@ -63,7 +62,7 @@ public class ChessBoardMoment {
 		return gcState.getEnPassantPosition();
 	}
 
-	public GameControllerStateInfo getGCState() {
+	public IGameControllerStateInfo getGCState() {
 		return gcState;
 	}
 }

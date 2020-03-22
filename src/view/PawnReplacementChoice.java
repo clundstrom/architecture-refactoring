@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import controller.IGameController;
+import model.stalemate.IGameController;
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;
 import model.chess_pieces.Bishop;

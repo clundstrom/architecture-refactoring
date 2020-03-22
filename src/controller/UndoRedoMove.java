@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import controller.GameController;
+import controller.GameControllerStateInfo;
 import model.chess_pieces.AbstractChessPiece;
 import view.ChessBoard;
 import model.stalemate.ChessBoardMoment;
@@ -87,7 +89,7 @@ public class UndoRedoMove {
 	}
 
 	private void setGameControllerStateInfo(ChessBoardMoment chessBoardMoment) {
-		GameControllerStateInfo gcState = chessBoardMoment.getGCState();
+		GameControllerStateInfo gcState = (GameControllerStateInfo) chessBoardMoment.getGCState();
 		gameController.setGcState(gcState);
 	}
 

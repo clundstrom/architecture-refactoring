@@ -1,5 +1,7 @@
 package controller;
 
+import model.stalemate.IGameController;
+import model.stalemate.*;
 import view.ChessBoard;
 import view.EndGame;
 
@@ -12,10 +14,6 @@ import java.util.Set;
 
 import javax.swing.SwingUtilities;
 
-import model.stalemate.CastlingOpportunities;
-import model.stalemate.CastlingPiecesMovementTracker;
-import model.stalemate.ChessBoardMoment;
-import model.stalemate.StalemateChecker;
 import model.stalemate.StalemateChecker.StalemateOption;
 import model.MutableBoolean;
 import model.Position;
@@ -836,7 +834,7 @@ public class GameController implements IGameController {
 		return stalemateChecker;
 	}
 
-	public GameControllerStateInfo getGcState() {
+	public IGameControllerStateInfo getGcState() {
 		return gcState;
 	}
 

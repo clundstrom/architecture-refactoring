@@ -27,7 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
-import controller.IGameController;
+import model.stalemate.IGameController;
 import model.chess_pieces.AbstractChessPieceFactory;
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;

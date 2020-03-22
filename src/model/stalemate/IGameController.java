@@ -1,4 +1,4 @@
-package controller;
+package model.stalemate;
 
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;

@@ -4,7 +4,6 @@ package model.stalemate;
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.IGameController;
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;
 import model.chess_pieces.King;
