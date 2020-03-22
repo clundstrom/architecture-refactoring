@@ -1,6 +1,5 @@
 package model.stalemate;
 
-import view.ChessBoard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +47,7 @@ public class StalemateChecker {
 
 	private boolean currentPlayerAbleToMove() {
 		Colour currentPlayerToMove = gc.getCurrentPlayerToMove();
-		List<AbstractChessPiece> playersPieces = gc.getChessBoard().getPlayersPieces(currentPlayerToMove);
+		List<AbstractChessPiece> playersPieces = gc.getPlayersPieces(currentPlayerToMove);
 		for (AbstractChessPiece piece : playersPieces) {
 			List<Position> allowedMoves = gc.getAllowedMovesForPiece(piece);
 			if (allowedMoves.size() > 0)
@@ -63,12 +62,11 @@ public class StalemateChecker {
 	 */
 	private boolean tooFewPiecesForCheckmate() {
 		Colour[] bothPlayers = {Colour.WHITE, Colour.BLACK};
-		ChessBoard chessBoard = gc.getChessBoard();
 		for (Colour player : bothPlayers) {
 			Colour existingBishopSquareColour = null;
 			int knightCount = 0;
 
-			List<AbstractChessPiece> playersPieces = chessBoard.getPlayersPieces(player);
+			List<AbstractChessPiece> playersPieces = gc.getPlayersPieces(player);
 			for (AbstractChessPiece piece : playersPieces) {
 				if (piece instanceof King)
 					continue;
@@ -81,7 +79,7 @@ public class StalemateChecker {
 						return false;
 				}
 				else {// Must be a bishop
-					Colour bishopSquareColour = ChessBoard.getColourOfSquareAtPosition(piece.getPosition());
+					Colour bishopSquareColour = gc.getColourOfSquareAtPosition(piece.getPosition());
 					if (existingBishopSquareColour != null &&
 							!bishopSquareColour.equals(existingBishopSquareColour))
 						return false;

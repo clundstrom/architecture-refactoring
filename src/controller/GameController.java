@@ -876,4 +876,13 @@ public class GameController {
 		this.possibleMoves = possibleMoves;
 	}
 
+
+	public List<AbstractChessPiece> getPlayersPieces(Colour currentPlayerToMove){
+		return this.chessBoard.getPlayersPieces(currentPlayerToMove);
+	}
+
+	public Colour getColourOfSquareAtPosition(Position position){
+		return chessBoard.getColourOfSquareAtPosition(position);
+	}
+
 }
