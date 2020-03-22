@@ -1,11 +1,10 @@
-package stalemate;
+package model.stalemate;
 
 import java.util.Map;
-import java.util.Set;
 
-import util.Position;
-import chess_pieces.AbstractChessPiece;
-import control.GameControllerStateInfo;
+import model.Position;
+import model.chess_pieces.AbstractChessPiece;
+import controller.GameControllerStateInfo;
 
 public class ChessBoardMoment {
 

@@ -1,4 +1,4 @@
-package stalemate;
+package model.stalemate;
 
 
 public class CastlingOpportunities {

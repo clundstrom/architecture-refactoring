@@ -1,4 +1,4 @@
-package stalemate;
+package model.stalemate;
 
 /**
  * Two visibly identical board positions where a castle has moved in one, and hasn't in the other, are not

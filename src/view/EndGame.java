@@ -1,11 +1,11 @@
-package gui;
+package view;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import stalemate.StalemateChecker.StalemateOption;
+import model.stalemate.StalemateChecker.StalemateOption;
 
-import chess_pieces.AbstractChessPiece.Colour;
+import model.chess_pieces.AbstractChessPiece.Colour;
 
 public class EndGame {
 
@@ -13,14 +13,14 @@ public class EndGame {
 	private boolean gameOver = false;
 	private static final String WHITE_CHECKMATE = "White has checkmated Black.";
 	private static final String BLACK_CHECKMATE = "Black has checkmated White.";
-	private static final String PLAYER_CANT_MOVE_STALEMATE = " has no moves available, so the game ends in stalemate.";
+	private static final String PLAYER_CANT_MOVE_STALEMATE = " has no moves available, so the game ends in model.stalemate.";
 	private static final String TOO_FEW_PIECES_STALEMATE = "Neither player has the pieces required to achieve checkmate, "
-		+ "so the game ends in stalemate.";
+		+ "so the game ends in model.stalemate.";
 	private static final String THREE_FOLD_MSG_START = "This exact board position, with the same moves "
 		+ "available, has occurred three times in a row. ";
 	private static final String FIFTY_MOVE_MSG_START = "Fifty moves have taken place without any pieces "
 		+ "being taken, or a pawn being moved. ";
-	private static final String OPTIONAL_MSG_END = " may declare stalemate.";
+	private static final String OPTIONAL_MSG_END = " may declare model.stalemate.";
 
 	public EndGame(JFrame chessBoard) {
 		super();
@@ -53,7 +53,7 @@ public class EndGame {
 			message = THREE_FOLD_MSG_START + playerToChoose.getName() + OPTIONAL_MSG_END;
 		else
 			message = FIFTY_MOVE_MSG_START + playerToChoose.getName() + OPTIONAL_MSG_END;
-        Object[] options = {"Declare stalemate", "Continue"};
+        Object[] options = {"Declare model.stalemate", "Continue"};
         int n = JOptionPane.showOptionDialog(chessBoard,
         		        message,
                         "Stalemate",

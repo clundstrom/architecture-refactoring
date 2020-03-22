@@ -1,4 +1,4 @@
-package gui;
+package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,13 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import util.Position;
-import chess_pieces.AbstractChessPiece;
-import chess_pieces.Bishop;
-import chess_pieces.Knight;
-import chess_pieces.Queen;
-import chess_pieces.Rook;
-import control.GameController;
+import model.Position;
+import model.chess_pieces.AbstractChessPiece;
+import model.chess_pieces.Bishop;
+import model.chess_pieces.Knight;
+import model.chess_pieces.Queen;
+import model.chess_pieces.Rook;
+import controller.GameController;
 
 public class PawnReplacementChoice {
 

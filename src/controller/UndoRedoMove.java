@@ -1,20 +1,15 @@
-package undo_redo;
+package controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import chess_pieces.AbstractChessPiece;
-import gui.ChessBoard;
-import control.GameController;
-import control.GameControllerStateInfo;
-import stalemate.ChessBoardMoment;
-import util.Position;
+import model.chess_pieces.AbstractChessPiece;
+import view.ChessBoard;
+import model.stalemate.ChessBoardMoment;
+import model.Position;
 
 /**
  * Template design pattern in use here.

@@ -1,4 +1,4 @@
-package gui;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,13 +27,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
-import chess_pieces.AbstractChessPieceFactory;
-import util.Position;
-import chess_pieces.AbstractChessPiece;
-import chess_pieces.King;
-import chess_pieces.Pawn;
-import chess_pieces.AbstractChessPiece.Colour;
-import control.GameController;
+import model.chess_pieces.AbstractChessPieceFactory;
+import model.Position;
+import model.chess_pieces.AbstractChessPiece;
+import model.chess_pieces.King;
+import model.chess_pieces.Pawn;
+import model.chess_pieces.AbstractChessPiece.Colour;
+import controller.GameController;
 
 
 @SuppressWarnings("serial")

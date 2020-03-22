@@ -1,6 +1,6 @@
-package chess_pieces;
+package model.chess_pieces;
 
-import util.Position;
+import model.Position;
 
 public class AbstractChessPieceFactory {
 

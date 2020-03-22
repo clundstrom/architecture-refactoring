@@ -1,7 +1,7 @@
-package control;
+package controller;
 
-import gui.ChessBoard;
-import gui.EndGame;
+import view.ChessBoard;
+import view.EndGame;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -12,22 +12,21 @@ import java.util.Set;
 
 import javax.swing.SwingUtilities;
 
-import stalemate.CastlingOpportunities;
-import stalemate.CastlingPiecesMovementTracker;
-import stalemate.ChessBoardMoment;
-import stalemate.StalemateChecker;
-import stalemate.StalemateChecker.StalemateOption;
-import undo_redo.UndoRedoMove;
-import util.MutableBoolean;
-import util.Position;
-import chess_pieces.AbstractChessPiece;
-import chess_pieces.Bishop;
-import chess_pieces.King;
-import chess_pieces.Knight;
-import chess_pieces.Pawn;
-import chess_pieces.Queen;
-import chess_pieces.Rook;
-import chess_pieces.AbstractChessPiece.Colour;
+import model.stalemate.CastlingOpportunities;
+import model.stalemate.CastlingPiecesMovementTracker;
+import model.stalemate.ChessBoardMoment;
+import model.stalemate.StalemateChecker;
+import model.stalemate.StalemateChecker.StalemateOption;
+import model.MutableBoolean;
+import model.Position;
+import model.chess_pieces.AbstractChessPiece;
+import model.chess_pieces.Bishop;
+import model.chess_pieces.King;
+import model.chess_pieces.Knight;
+import model.chess_pieces.Pawn;
+import model.chess_pieces.Queen;
+import model.chess_pieces.Rook;
+import model.chess_pieces.AbstractChessPiece.Colour;
 
 public class GameController {
 

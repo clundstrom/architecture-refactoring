@@ -1,4 +1,4 @@
-package gui;
+package view;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;

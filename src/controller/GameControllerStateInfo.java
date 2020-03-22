@@ -1,15 +1,10 @@
-package control;
-
-import gui.ChessBoard;
-import gui.EndGame;
+package controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import stalemate.StalemateChecker;
-import util.Position;
-import chess_pieces.AbstractChessPiece;
-import chess_pieces.AbstractChessPiece.Colour;
+import model.Position;
+import model.chess_pieces.AbstractChessPiece.Colour;
 
 /**
  * This class contains all of the fields that GameController requires at a chess position

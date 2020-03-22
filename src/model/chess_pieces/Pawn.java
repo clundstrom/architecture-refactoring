@@ -1,9 +1,9 @@
-package chess_pieces;
+package model.chess_pieces;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import util.Position;
+import model.Position;
 
 public class Pawn extends AbstractChessPiece {
 

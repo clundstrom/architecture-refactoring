@@ -1,21 +1,19 @@
-package stalemate;
+package model.stalemate;
 
-import gui.ChessBoard;
+import view.ChessBoard;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
-import util.Position;
-import chess_pieces.AbstractChessPiece;
-import chess_pieces.King;
-import chess_pieces.Knight;
-import chess_pieces.Pawn;
-import chess_pieces.Queen;
-import chess_pieces.Rook;
-import chess_pieces.AbstractChessPiece.Colour;
-import control.GameController;
+import model.Position;
+import model.chess_pieces.AbstractChessPiece;
+import model.chess_pieces.King;
+import model.chess_pieces.Knight;
+import model.chess_pieces.Pawn;
+import model.chess_pieces.Queen;
+import model.chess_pieces.Rook;
+import model.chess_pieces.AbstractChessPiece.Colour;
+import controller.GameController;
 
 public class StalemateChecker {
 
