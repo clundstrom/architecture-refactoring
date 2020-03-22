@@ -9,24 +9,24 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
+import controller.IGameController;
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;
 import model.chess_pieces.Bishop;
 import model.chess_pieces.Knight;
 import model.chess_pieces.Queen;
 import model.chess_pieces.Rook;
-import controller.GameController;
 
 public class PawnReplacementChoice {
 
 	ChessBoard chessBoard;
-	GameController gameController;
+	IGameController gameController;
 	JOptionPane optionPane;
 	JDialog dialog;
 	AbstractChessPiece pieceCurrentlyHeld;
 	Position clickedPosition;
 
-	public PawnReplacementChoice(ChessBoard chessBoard, GameController gameController,
+	public PawnReplacementChoice(ChessBoard chessBoard, IGameController gameController,
 			AbstractChessPiece pieceCurrentlyHeld,Position clickedPosition) {
 		this.chessBoard = chessBoard;
 		this.gameController = gameController;

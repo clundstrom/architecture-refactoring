@@ -28,7 +28,7 @@ import model.chess_pieces.Queen;
 import model.chess_pieces.Rook;
 import model.chess_pieces.AbstractChessPiece.Colour;
 
-public class GameController {
+public class GameController implements IGameController {
 
 	private GameControllerStateInfo gcState = new GameControllerStateInfo();
 	ChessBoard chessBoard;
@@ -848,6 +848,7 @@ public class GameController {
 		return gcState.moveNumber;
 	}
 
+	@Override
 	public void undo() {
 		undoRedoMove.undo();
 	}

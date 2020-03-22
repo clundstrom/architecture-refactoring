@@ -27,13 +27,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
+import controller.IGameController;
 import model.chess_pieces.AbstractChessPieceFactory;
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;
 import model.chess_pieces.King;
 import model.chess_pieces.Pawn;
 import model.chess_pieces.AbstractChessPiece.Colour;
-import controller.GameController;
 
 
 @SuppressWarnings("serial")
@@ -42,7 +42,7 @@ public class ChessBoard extends JFrame {
 	private static final int CHESSBOARD_WIDTH = 8;
 	private static final int CHESSBOARD_LENGTH = 8;
 
-	private GameController gc;
+	private IGameController gc;
 	private ChessBoard chessBoard;
 	private JPanel contentPanel = new JPanel();
 	private JPanel gridJPanel = new JPanel();
@@ -57,7 +57,7 @@ public class ChessBoard extends JFrame {
 
 	private Map<Position, AbstractChessPiece> chessPieces;
 
-	public ChessBoard(final GameController gc) {
+	public ChessBoard(final IGameController gc) {
 		this.gc = gc;
 		chessBoard = this;
 		setSize(600, 600);
