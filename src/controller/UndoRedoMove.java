@@ -6,8 +6,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import controller.GameController;
-import controller.GameControllerStateInfo;
 import model.chess_pieces.AbstractChessPiece;
 import view.ChessBoard;
 import model.stalemate.ChessBoardMoment;
@@ -21,14 +19,14 @@ import model.Position;
  */
 public class UndoRedoMove {
 
-	private GameController gameController;
+	private IUndoRedoController gameController;
 	private ChessBoard chessBoard;
 	private List<ChessBoardMoment> previousMoments;
 	private int moveNumber;
 	private int highestMoveNumber;
 	enum Change {UNDO, REDO};
 
-	public UndoRedoMove(GameController gameController, ChessBoard chessBoard,
+	public UndoRedoMove(IUndoRedoController gameController, ChessBoard chessBoard,
 			List<ChessBoardMoment> previousMoments) {
 		super();
 		this.gameController = gameController;

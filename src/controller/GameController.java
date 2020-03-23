@@ -26,7 +26,7 @@ import model.chess_pieces.Queen;
 import model.chess_pieces.Rook;
 import model.chess_pieces.Colour;
 
-public class GameController implements IGameController {
+public class GameController implements IGameController, IUndoRedoController {
 
 	private GameControllerStateInfo gcState = new GameControllerStateInfo();
 	ChessBoard chessBoard;
