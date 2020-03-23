@@ -18,14 +18,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
+import javax.swing.*;
 
 import model.stalemate.IGameController;
 import model.chess_pieces.AbstractChessPieceFactory;
@@ -71,33 +64,21 @@ public class ChessBoard extends JFrame {
 		initializeSoleJToolBar();
 		contentPanel.add(soleJToolBar, BorderLayout.NORTH);
 
-		newGameButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent actionEvent) {
-				NewGameChoice sole = new NewGameChoice(chessBoard);
-				sole.show();
+		newGameButton.addActionListener(actionEvent -> newGameChoice());
+
+		undoButton.addActionListener(actionEvent -> {
+			gc.undo();
+			redoButton.setEnabled(true);
+			if (gc.getMoveNumber() == 0) {
+				undoButton.setEnabled(false);
 			}
 		});
 
-		undoButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent actionEvent) {
-				gc.undo();
-				redoButton.setEnabled(true);
-				if (gc.getMoveNumber() == 0) {
-					undoButton.setEnabled(false);
-				}
-			}
-		});
-
-		redoButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent actionEvent) {
-				gc.redo();
-				undoButton.setEnabled(true);
-				if (gc.getMoveNumber() == gc.getHighestRecordedMoveNumber()) {
-					redoButton.setEnabled(false);
-				}
+		redoButton.addActionListener(actionEvent -> {
+			gc.redo();
+			undoButton.setEnabled(true);
+			if (gc.getMoveNumber() == gc.getHighestRecordedMoveNumber()) {
+				redoButton.setEnabled(false);
 			}
 		});
 		
@@ -177,20 +158,6 @@ public class ChessBoard extends JFrame {
 				bool2 = (bool2 == true) ? false : true;
 
 				chessSquareArray[i][j].addMouseListener(new MouseAdapter() {
-//					@Override
-//					public void mouseEntered(MouseEvent mouseEvent) {
-//						mouseEvent.getComponent().setBackground(Color.GREEN);
-//					}
-
-//					@Override
-//					public void mouseExited(MouseEvent mouseEvent) {
-//						Component currentJLabel = (JLabel) mouseEvent.getComponent();
-//						if (currentJLabel.getName().charAt(0) == 'g')
-//							currentJLabel.setBackground(Color.GRAY);
-//						else
-//							currentJLabel.setBackground(Color.WHITE);
-//					}
-
 					@Override
 					public void mouseReleased(MouseEvent mouseEvent) {
 						Component currentJLabel = (JLabel) mouseEvent.getComponent();
@@ -206,7 +173,7 @@ public class ChessBoard extends JFrame {
 	}
 
 	public void initialiseBoard() {
-		chessPieces = new HashMap<Position, AbstractChessPiece>();
+		chessPieces = new HashMap<>();
 		addInitialSixteenPieces();
 		Set<Position> positionSet = chessPieces.keySet();
 		for (Position position : positionSet) {
@@ -225,7 +192,7 @@ public class ChessBoard extends JFrame {
 	}
 
 	private void addInitialSixteenPieces() {
-		Colour colour = null;
+		Colour colour;
 		int xCoord = 0, yCoord = 0;
 
 		for (int i = 1; i <= 2; i++) {
@@ -382,6 +349,16 @@ public class ChessBoard extends JFrame {
 			Position clickedPosition) {
 		PawnReplacementChoice sole = new PawnReplacementChoice(chessBoard, gc, pieceCurrentlyHeld, clickedPosition);
 		sole.replace();
+	}
+
+	public void newGameChoice() {
+		int n = JOptionPane.showConfirmDialog(
+				chessBoard, "Really start a new game?",
+				"New game",
+				JOptionPane.YES_NO_OPTION);
+		if (n == JOptionPane.YES_OPTION) {
+			chessBoard.reset();
+		}
 	}
 
 	public int getNumberOfChessPieces() {
