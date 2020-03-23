@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -19,14 +20,14 @@ import model.chess_pieces.Rook;
 
 public class PawnReplacementChoice {
 
-    ChessBoard chessBoard;
+    IChessBoard chessBoard;
     IGameController gameController;
     JOptionPane optionPane;
     JDialog dialog;
     AbstractChessPiece pieceCurrentlyHeld;
     Position clickedPosition;
 
-    public PawnReplacementChoice(ChessBoard chessBoard, IGameController gameController,
+    public PawnReplacementChoice(IChessBoard chessBoard, IGameController gameController,
                                  AbstractChessPiece pieceCurrentlyHeld, Position clickedPosition) {
         this.chessBoard = chessBoard;
         this.gameController = gameController;
@@ -59,17 +60,17 @@ public class PawnReplacementChoice {
         optionPane = new JOptionPane("Choose a piece to replace the pawn.", JOptionPane.QUESTION_MESSAGE,
                 JOptionPane.DEFAULT_OPTION, null, optionButtons);
 
-        dialog = new JDialog(chessBoard, true);
+        dialog = new JDialog((Dialog) chessBoard, true);
         dialog.setContentPane(optionPane);
         dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         optionPane.addPropertyChangeListener(
-				e -> {
-					if (dialog.isVisible() && (e.getSource() == optionPane)) {
-						dialog.setVisible(false);
-					}
-				});
+                e -> {
+                    if (dialog.isVisible() && (e.getSource() == optionPane)) {
+                        dialog.setVisible(false);
+                    }
+                });
         dialog.pack();
-        dialog.setLocationRelativeTo(chessBoard);
+        dialog.setLocationRelativeTo((Component) chessBoard);
         dialog.setVisible(true);
     }
 

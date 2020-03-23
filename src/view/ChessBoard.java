@@ -347,8 +347,12 @@ public class ChessBoard extends JFrame {
 
 	public void replacePawnWithUserChoice(Pawn pieceCurrentlyHeld,
 			Position clickedPosition) {
-		PawnReplacementChoice sole = new PawnReplacementChoice(chessBoard, gc, pieceCurrentlyHeld, clickedPosition);
+
+
+		PawnReplacementChoice sole = new PawnReplacementChoice((IChessBoard) chessBoard, gc, pieceCurrentlyHeld, clickedPosition);
 		sole.replace();
+
+
 	}
 
 	public void newGameChoice() {
