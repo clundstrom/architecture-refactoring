@@ -2,6 +2,7 @@ package model.stalemate;
 
 import model.Position;
 import model.chess_pieces.AbstractChessPiece;
+import model.chess_pieces.Colour;
 
 import java.util.List;
 
@@ -14,11 +15,11 @@ public interface IGameController {
     void squareClicked(Position clickedPosition);
     void determineIfCurrentPlayerIsInCheck();
 
-    AbstractChessPiece.Colour getCurrentPlayerToMove();
+    Colour getCurrentPlayerToMove();
 
-    List<AbstractChessPiece> getPlayersPieces(AbstractChessPiece.Colour currentPlayerToMove);
+    List<AbstractChessPiece> getPlayersPieces(Colour currentPlayerToMove);
 
     List<Position> getAllowedMovesForPiece(AbstractChessPiece piece);
 
-    AbstractChessPiece.Colour getColourOfSquareAtPosition(Position position);
+    Colour getColourOfSquareAtPosition(Position position);
 }

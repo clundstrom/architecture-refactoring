@@ -11,7 +11,7 @@ import model.chess_pieces.Knight;
 import model.chess_pieces.Pawn;
 import model.chess_pieces.Queen;
 import model.chess_pieces.Rook;
-import model.chess_pieces.AbstractChessPiece.Colour;
+import model.chess_pieces.Colour;
 
 public class StalemateChecker {
 

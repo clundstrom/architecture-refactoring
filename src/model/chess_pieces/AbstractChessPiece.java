@@ -7,19 +7,6 @@ import model.Position;
 
 public abstract class AbstractChessPiece {
 
-	public enum Colour {
-		WHITE("White"), BLACK("Black");
-		
-		private String name;
-
-		Colour(String name) {
-			this.name = name;
-		}
-		public String getName() {
-			return name;
-		}
-	}
-
 	String pieceName;
 	Colour colour;
 	Position position;

@@ -1,13 +1,13 @@
 package model.stalemate;
 
 import model.Position;
-import model.chess_pieces.AbstractChessPiece;
+import model.chess_pieces.Colour;
 
 import java.util.List;
 
 public interface IGameControllerStateInfo {
 
-    AbstractChessPiece.Colour getCurrentPlayerToMove();
+    Colour getCurrentPlayerToMove();
 
     boolean isCurrentPlayerIsInCheck();
 

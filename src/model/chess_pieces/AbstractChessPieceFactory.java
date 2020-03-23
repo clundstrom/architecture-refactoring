@@ -4,7 +4,7 @@ import model.Position;
 
 public class AbstractChessPieceFactory {
 
-    public static final AbstractChessPiece createChessPiece(String name, AbstractChessPiece.Colour colour, Position position) {
+    public static final AbstractChessPiece createChessPiece(String name, Colour colour, Position position) {
         if (name.equals("Pawn"))
             return new Pawn(colour, position);
         if (name.equals("Rook"))

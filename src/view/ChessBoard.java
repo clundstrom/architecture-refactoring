@@ -33,7 +33,7 @@ import model.Position;
 import model.chess_pieces.AbstractChessPiece;
 import model.chess_pieces.King;
 import model.chess_pieces.Pawn;
-import model.chess_pieces.AbstractChessPiece.Colour;
+import model.chess_pieces.Colour;
 
 
 @SuppressWarnings("serial")

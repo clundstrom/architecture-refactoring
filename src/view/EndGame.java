@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 import model.stalemate.StalemateChecker.StalemateOption;
 
-import model.chess_pieces.AbstractChessPiece.Colour;
+import model.chess_pieces.Colour;
 
 public class EndGame {
 

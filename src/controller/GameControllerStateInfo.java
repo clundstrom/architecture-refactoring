@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Position;
-import model.chess_pieces.AbstractChessPiece.Colour;
+import model.chess_pieces.Colour;
 import model.stalemate.IGameControllerStateInfo;
 
 /**
