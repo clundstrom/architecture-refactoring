@@ -21,7 +21,7 @@ public class StalemateChecker {
 	private List<ChessBoardMoment> previousMoments = new ArrayList<ChessBoardMoment>();
 
 	public enum StalemateOption {MANDATORY_PLAYER_CANT_MOVE, MANDATORY_TOO_FEW_PIECES,
-		OPTIONAL_THREE_FOLD, OPTIONAL_FIFTY_MOVE, NOT_STALEMATE};
+		OPTIONAL_THREE_FOLD, OPTIONAL_FIFTY_MOVE, NOT_STALEMATE}
 
 	public StalemateChecker(IGameController gameController) {
 		gc = gameController;

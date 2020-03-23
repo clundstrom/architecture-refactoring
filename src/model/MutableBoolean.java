@@ -6,11 +6,6 @@ public class MutableBoolean {
 
 	public MutableBoolean() {}
 
-	public MutableBoolean(boolean value) {
-		super();
-		this.value = value;
-	}
-
 	public boolean booleanValue() {
 		return value;
 	}

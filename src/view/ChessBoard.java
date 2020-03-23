@@ -155,12 +155,12 @@ public class ChessBoard extends JFrame {
 					chessSquareArray[i][j].setName("white" + i + j);
 				}
 				gridJPanel.add(chessSquareArray[i][j]);
-				bool2 = (bool2 == true) ? false : true;
+				bool2 = bool2 != true;
 
 				chessSquareArray[i][j].addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseReleased(MouseEvent mouseEvent) {
-						Component currentJLabel = (JLabel) mouseEvent.getComponent();
+						Component currentJLabel = mouseEvent.getComponent();
 						String labelName = currentJLabel.getName();
 						Position clickedPosition = arrayToBoard(labelName.charAt(labelName.length() - 2) - '0',
 								labelName.charAt(labelName.length() - 1) - '0');
@@ -168,7 +168,7 @@ public class ChessBoard extends JFrame {
 					}
                 });
 			}
-			bool1 = (bool1 == true) ? false : true;
+			bool1 = bool1 != true;
 		}
 	}
 
@@ -379,24 +379,12 @@ public class ChessBoard extends JFrame {
 		return chessPiecesClone;
 	}
 
-	public Map<Position, AbstractChessPiece> getChessPieces() {
-		return chessPieces;
-	}
-
 	public void setChessPieces(Map<Position, AbstractChessPiece> chessPieces) {
 		this.chessPieces = chessPieces;
 	}
 
 	public JCheckBox getAllowUndoCheckBox() {
 		return allowUndoCheckBox;
-	}
-
-	public void setAllowUndoCheckBox(JCheckBox allowUndoCheckBox) {
-		this.allowUndoCheckBox = allowUndoCheckBox;
-	}
-
-	public boolean isAllowUndoOverride() {
-		return allowUndoOverride;
 	}
 
 	public void setAllowUndoOverride(boolean allowUndoOverride) {

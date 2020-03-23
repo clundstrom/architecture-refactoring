@@ -214,8 +214,7 @@ public class GameController implements IGameController, IUndoRedoController {
 			this.possibleMoves = possibleMovesThatBlockCheck;
 
 
-			if (gcState.getCheckBlockingMoves() != null)
-				assert !gcState.checkBlockingMoves.contains(null);
+			assert gcState.getCheckBlockingMoves() == null || !gcState.checkBlockingMoves.contains(null);
 
 			// This is for the very unusual situation that an enemy pawn has moved forward twice to
 			// personally threaten the King, but the enemy pawn can be taken by en passant.
@@ -501,9 +500,7 @@ public class GameController implements IGameController, IUndoRedoController {
 
 		// Check for threatening Bishops, Rooks, Queens, Kings and Pawns.
 		List<List<Position>> threateningLines = getThreateningLines(position);
-		if (threateningLines.size() > 0)
-			return true;
-		return false;
+		return threateningLines.size() > 0;
 	}
 
 	/* This method will also get called when deciding if it's a checkmate.
@@ -596,11 +593,8 @@ public class GameController implements IGameController, IUndoRedoController {
 			return false;
 		}
 
-		if (pawn.getColour() == Colour.BLACK && yDiff == 1
-				|| pawn.getColour() == Colour.WHITE && yDiff == -1) {
-			return true;
-		}
-		return false;
+		return pawn.getColour() == Colour.BLACK && yDiff == 1
+				|| pawn.getColour() == Colour.WHITE && yDiff == -1;
 	}
 
 	private void resetColoursAfterMove() {
@@ -786,11 +780,8 @@ public class GameController implements IGameController, IUndoRedoController {
 				return false;
 		}
 		// Positions (2, 1) and (2, 8) must be empty but may be checked.
-		if (direction == -1 &&
-				chessBoard.getPieceAtPosition(Position.createPosition(2, rookPosition.getYCoord())) != null) {
-			return false;
-		}
-		return true;
+		return direction != -1 ||
+				chessBoard.getPieceAtPosition(Position.createPosition(2, rookPosition.getYCoord())) == null;
 	}
 
 	private CastlingPiecesMovementTracker constructCastlingPiecesMovementTracker() {
@@ -863,25 +854,12 @@ public class GameController implements IGameController, IUndoRedoController {
 		return pieceCurrentlyHeld;
 	}
 
-	public void setPieceCurrentlyHeld(AbstractChessPiece pieceCurrentlyHeld) {
-		this.pieceCurrentlyHeld = pieceCurrentlyHeld;
-	}
-
-	public List<Position> getPossibleMoves() {
-		return possibleMoves;
-	}
-
-	public void setPossibleMoves(List<Position> possibleMoves) {
-		this.possibleMoves = possibleMoves;
-	}
-
-
 	public List<AbstractChessPiece> getPlayersPieces(Colour currentPlayerToMove){
 		return this.chessBoard.getPlayersPieces(currentPlayerToMove);
 	}
 
 	public Colour getColourOfSquareAtPosition(Position position){
-		return chessBoard.getColourOfSquareAtPosition(position);
+		return ChessBoard.getColourOfSquareAtPosition(position);
 	}
 
 }

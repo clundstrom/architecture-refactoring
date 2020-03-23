@@ -24,7 +24,7 @@ public class UndoRedoMove {
 	private List<ChessBoardMoment> previousMoments;
 	private int moveNumber;
 	private int highestMoveNumber;
-	enum Change {UNDO, REDO};
+	enum Change {UNDO, REDO}
 
 	public UndoRedoMove(IUndoRedoController gameController, ChessBoard chessBoard,
 			List<ChessBoardMoment> previousMoments) {
@@ -107,17 +107,18 @@ public class UndoRedoMove {
 
 		List<AbstractChessPiece> piecesToDelete = new ArrayList<AbstractChessPiece>();
 		List<AbstractChessPiece> piecesToAdd = new ArrayList<AbstractChessPiece>();
-		
-		for (Position intendedPosition : intendedPositions) {
-			if (!currentPositions.contains(intendedPosition)
-					|| !intendedPieces.get(intendedPosition).equals(currentPieces.get(intendedPosition))) {
-				pieceToAdd = intendedPieces.get(intendedPosition);
-				if (!pieceToAdd.getPosition().equals(intendedPosition)) {
-					assert false;
-				}
-				piecesToAdd.add(pieceToAdd);
-			}
-		}
+
+		addPieceToIntended(intendedPieces, currentPieces, intendedPositions, currentPositions, piecesToAdd);
+		addPieceToIntended(currentPieces, intendedPieces, currentPositions, intendedPositions, piecesToDelete);
+
+		for (AbstractChessPiece piece : piecesToDelete)
+		    chessBoard.removePiece(piece.getPosition());
+		for (AbstractChessPiece piece : piecesToAdd)
+		    chessBoard.addPiece(piece);
+	}
+
+	private void addPieceToIntended(Map<Position, AbstractChessPiece> currentPieces, Map<Position, AbstractChessPiece> intendedPieces, Set<Position> currentPositions, Set<Position> intendedPositions, List<AbstractChessPiece> piecesToDelete) {
+		AbstractChessPiece pieceToDelete;
 		for (Position currentPosition : currentPositions) {
 			if (!intendedPositions.contains(currentPosition)
 					|| !currentPieces.get(currentPosition).equals(intendedPieces.get(currentPosition))) {
@@ -126,11 +127,6 @@ public class UndoRedoMove {
 				piecesToDelete.add(pieceToDelete);
 			}
 		}
-
-		for (AbstractChessPiece piece : piecesToDelete)
-		    chessBoard.removePiece(piece.getPosition());
-		for (AbstractChessPiece piece : piecesToAdd)
-		    chessBoard.addPiece(piece);
 	}
 
 	/**

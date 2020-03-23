@@ -39,7 +39,7 @@ public class EndGame {
 
 	public void declareMandatoryStalemate(StalemateOption stalemateOption, Colour currentPlayerToMove) {
 		gameOver = true;
-		String message = null;
+		String message;
 		if (stalemateOption == StalemateOption.MANDATORY_PLAYER_CANT_MOVE)
 			message = currentPlayerToMove.getName() + PLAYER_CANT_MOVE_STALEMATE;
 		else
