@@ -1,5 +1,5 @@
 ---To run---
-Chess.jar is in the lib folder. This single file contains everything necessary to run the program. On Windows you can simply double-click on this to run it, providing that you have the Java runtime environment installed.
+refactored_chess.jar is in the lib folder. This single file contains everything necessary to run the program. On Windows you can simply double-click on this to run it, providing that you have the Java runtime environment installed.
 To run on Linux:
 Make Chess.jar executable: chmod 755 Chess.jar
 Then: ./Chess.jar
